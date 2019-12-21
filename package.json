@@ -28,7 +28,7 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
-    "axios": "^0.15.3",
+    "axios": "^0.19.0",
     "babel-preset-stage-1": "^6.1.18",
     "crypto": "^1.0.1",
     "lodash.clonedeep": "^4.5.0",
