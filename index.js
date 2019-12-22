@@ -12,7 +12,7 @@ app.use((req, res, next) => {
     next();
 });
 
-
+require('/api/models');
 console.log('app started..');
 /**
  * Swagger initialization on top of express

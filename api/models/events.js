@@ -33,12 +33,12 @@ module.exports = function (sequelize, DataTypes) {
       field: 'last_confirmation_date',
     },
     minParticipants: {
-      type: DataTypes.INT,
+      type: DataTypes.NUMBER,
       field: 'min_participants',
       defaultValue: 0,
     },
     maxParticipants: {
-      type: DataTypes.INT,
+      type: DataTypes.NUMBER,
       field: 'max_participants',
       defaultValue: 0,
     },
