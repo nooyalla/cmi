@@ -10,7 +10,11 @@
   },
   "dependencies": {
     "express": "^4.12.3",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "pg": "^7.8.0",
+    "pg-hstore": "^2.3.2",
+    "request-promise": "^4.2.4",
+    "sequelize": "^5.0.0-beta.16"
   },
   "devDependencies": {},
   "repository": {
