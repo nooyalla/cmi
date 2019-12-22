@@ -20,7 +20,7 @@ console.log('app started..');
 
 console.log('[lifecycle]: core service is booting up');
 
-const port = 5000;
+const port = process.env.PORT || 5000;
 app.listen(port);
 console.log('[lifecycle]: core service is now listening', {
     port,
