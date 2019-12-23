@@ -50,6 +50,11 @@ module.exports = function (sequelize, DataTypes) {
       field: 'max_participants',
       defaultValue: 0,
     },
+    participantsHaveBeenNotify: {
+      type: DataTypes.BOOLEAN,
+      field: 'participants_have_been_notify',
+      defaultValue: false,
+    },
     ...dateFields,
   }, {
     paranoid: true,

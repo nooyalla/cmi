@@ -1,11 +1,9 @@
 const nodemailer = require('nodemailer');
 const logger = require('./logger');
 
-const from = 'info@cmi.com';
 
-const { EMAIL_USER } = process.env;
-const { EMAIL_PASSWORD } = process.env;
-
+const  { EMAIL_USER, EMAIL_PASSWORD} = process.env;
+const from= 'info@imin.com';
 function sendHtmlMail(subject, html, to) {
   if (!EMAIL_USER || !EMAIL_PASSWORD) {
     logger.info('[Email-service] no email user/password, email will not be sent');

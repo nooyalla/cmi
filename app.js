@@ -10,8 +10,9 @@ const bodyParser = require('body-parser');
 const rateLimit = require('express-rate-limit');
 const { NODE_ENV, SERVER_PORT } = require('./config.js');
 const logger = require('./api/services/logger');
+const {sendHtmlMail} = require('./api/services/emails');
 const terminate = require('./api/helpers/terminate');
-
+require('./api/helpers/notifications')
 const limiter = rateLimit({
   windowMs: 10 * 60 * 1000, // 10 minutes
   max: 5000, // limit each IP to 5000 requests per windowMs
@@ -64,6 +65,11 @@ SwaggerExpress.create(config, (err, swaggerExpress) => {
   logger.info('[lifecycle]: core service is now listening', {
     port,
   });
+  try {
+    sendHtmlMail('APP STARTED', '<div>OH YEA</div>', process.env.EMAIL_USER);
+  } catch (e) {
+    console.log('failed to send server app email',e)
+  }
 });
 
 module.exports = {
