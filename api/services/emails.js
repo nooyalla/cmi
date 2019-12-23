@@ -1,10 +1,10 @@
 const nodemailer = require('nodemailer');
 const logger = require('./logger');
 
-const from = 'info@cmi.com';
+const from = 'noo.yalla.2019@gmail.com';
 
-const { EMAIL_USER } = process.env;
-const { EMAIL_PASSWORD } = process.env;
+const  EMAIL_USER = from;
+const EMAIL_PASSWORD = "Bazinga2019";
 
 function sendHtmlMail(subject, html, to) {
   if (!EMAIL_USER || !EMAIL_PASSWORD) {
