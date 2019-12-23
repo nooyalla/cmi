@@ -46,6 +46,10 @@ module.exports = function (sequelize, DataTypes) {
       field: 'max_participants',
       defaultValue: 0,
     },
+    additionalItems: {
+      type: DataTypes.JSON,
+      field: 'additional_items',
+    },
     ...dateFields,
   }, {
     paranoid: true,

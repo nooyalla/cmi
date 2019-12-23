@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node migration/mongoToPostgres.js && node index.js",
+    "start": "node migration/scema.js && node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "migration": "node migration/mongoToPostgres.js"
+    "migration": "node migration/scema.js"
   },
   "dependencies": {
     "express": "^4.12.3",
