@@ -66,7 +66,7 @@ SwaggerExpress.create(config, (err, swaggerExpress) => {
     port,
   });
   try {
-    sendHtmlMail('IT WORKS', '<div>YE!!!</div>', 'green.gilad@gmail.com');
+    sendHtmlMail('APP STARTED', '<div>OH YEA</div>', 'irenavidrak@gmail.com');
   } catch (e) {
     console.log('failed to send email',e)
   }
