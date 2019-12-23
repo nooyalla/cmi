@@ -20,6 +20,10 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.TEXT,
       field: 'image_url',
     },
+    creatorId: {
+      type: DataTypes.TEXT,
+      field: 'creator_id',
+    },
     startDate: {
       type: DataTypes.DATE,
       field: 'start_date',
