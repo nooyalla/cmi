@@ -47,7 +47,7 @@ module.exports = function (sequelize, DataTypes) {
       defaultValue: 0,
     },
     additionalItems: {
-      type: DataTypes.JSON,
+      type: DataTypes.TEXT,
       field: 'additional_items',
     },
     ...dateFields,

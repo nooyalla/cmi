@@ -14,7 +14,7 @@
                 "last_confirmation_date timestamp without time zone NOT NULL",
                 "min_participants integer default 0",
                 "max_participants integer default 0",
-                "additional_items json",
+                "additional_items text",
                 "created_at timestamp without time zone NOT NULL",
                 "updated_at timestamp without time zone NOT NULL",
                 "deleted_at timestamp without time zone"
