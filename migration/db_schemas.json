@@ -4,11 +4,11 @@
             "tableName":  "events",
             "columns" : [
                 "id text PRIMARY KEY",
+                "creator_id text NOT NULL",
                 "title text NOT NULL",
                 "description text",
                 "location text",
                 "image_url text",
-                "creator_id text NOT NULL",
                 "start_date timestamp without time zone NOT NULL",
                 "end_date timestamp without time zone",
                 "last_confirmation_date timestamp without time zone NOT NULL",

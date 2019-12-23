@@ -7,6 +7,14 @@ module.exports = function (sequelize, DataTypes) {
       primaryKey: true,
       defaultValue: DataTypes.UUIDV4,
     },
+    creatorId: {
+      type: DataTypes.TEXT,
+      field: 'creator_id',
+    },
+    additionalItems: {
+      type: DataTypes.TEXT,
+      field: 'additional_items',
+    },
     title: {
       type: DataTypes.TEXT,
     },
@@ -19,10 +27,6 @@ module.exports = function (sequelize, DataTypes) {
     imageUrl: {
       type: DataTypes.TEXT,
       field: 'image_url',
-    },
-    creatorId: {
-      type: DataTypes.TEXT,
-      field: 'creator_id',
     },
     startDate: {
       type: DataTypes.DATE,
@@ -45,10 +49,6 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.NUMBER,
       field: 'max_participants',
       defaultValue: 0,
-    },
-    additionalItems: {
-      type: DataTypes.TEXT,
-      field: 'additional_items',
     },
     ...dateFields,
   }, {

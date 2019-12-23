@@ -1,21 +1,24 @@
 const Sequelize = require('sequelize');
 const fs = require('fs');
 
-const dbConnectionString = process.env.DATABASE_URL || "postgres://cxaitoocyrmvde:f102dc71cfb17f7c3fba1ff9bc8f6ad94345ade47cfbfdbbce5b098113d23263@ec2-54-195-252-243.eu-west-1.compute.amazonaws.com:5432/d426t09fcdnssk" ;
-const sequelize = new Sequelize(dbConnectionString, { logging: false, ssl: true, pool: { acquire: 2000 } });
+const { DATABASE_URL } = require('./../../config.js');
 
+const dbConnectionString = DATABASE_URL;
+const sequelize = new Sequelize(dbConnectionString, { logging: false, ssl: true, pool: { acquire: 2000 } });
 const models = fs.readdirSync(__dirname)
   .reduce((all, fileName) => {
-    if (fileName === 'index.js') {
+    if (fileName === 'index.js' || fileName==='.DS_Store') {
       return all;
     }
     const modelName = fileName.split('.')[0];
-    console.log('modelName',modelName)
+    const path = `${__dirname}/${fileName}`;
+
     return {
-        ...all,
-        [modelName]: sequelize.import(`${__dirname}/${fileName}`),
-      }
-      }, {});
+      ...all,
+      [modelName]: sequelize.import(path),
+    };
+
+  }, {});
 
 Object.keys(models).forEach((modelName) => {
   if (models[modelName].associate) {

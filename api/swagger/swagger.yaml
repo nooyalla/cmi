@@ -1,0 +1,300 @@
+swagger: "2.0"
+info:
+  version: "2.0.0"
+  title: Poker Stats
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+  - text/html
+paths:
+  /swagger:
+    x-swagger-pipe: swagger_raw
+
+  /api/events:
+    x-swagger-router-controller: events
+    get:
+      operationId: getEvents
+      responses:
+        200:
+          description: GetEventsResponseDefinition
+          schema:
+            $ref: "#/definitions/GetEventsResponseDefinition"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      operationId: createEvent
+      parameters:
+        - name: body
+          in: body
+          description: The new event details
+          required: true
+          schema:
+            $ref: "#/definitions/CreateEventRequestDefinition"
+      responses:
+        201:
+          description: createEventResponseDefinition
+          schema:
+            $ref: "#/definitions/EventDefinition"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /api/events/{eventId}:
+    x-swagger-router-controller: events
+    parameters:
+      - $ref: '#/parameters/EventId'
+    get:
+      operationId: getEvent
+      responses:
+        200:
+          description: EventDefinition
+          schema:
+            $ref: "#/definitions/EventDefinition"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    patch:
+      operationId: updateEvent
+      parameters:
+        - name: body
+          in: body
+          description: The updated Event details
+          required: true
+          schema:
+            $ref: "#/definitions/UpdateEventRequestDefinition"
+      responses:
+        200:
+          description: EventDefinition
+          schema:
+            $ref: "#/definitions/EventDefinition"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    delete:
+      operationId: deleteEvent
+      responses:
+        204:
+          description: EventDeletedDefinition
+          schema:
+            $ref: "#/definitions/EventDeletedDefinition"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /api/events/{eventId}/attend:
+    x-swagger-router-controller: events
+    parameters:
+      - $ref: '#/parameters/EventId'
+    post:
+      operationId: attendEvent
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/AttendEventRequestDefinition"
+      responses:
+        200:
+          description: EventDefinition
+          schema:
+            $ref: "#/definitions/EventDefinition"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /api/events/{eventId}/unattend:
+    x-swagger-router-controller: events
+    parameters:
+      - $ref: '#/parameters/EventId'
+    post:
+      operationId: unattendEvent
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/UnattendEventRequestDefinition"
+      responses:
+        200:
+          description: EventDefinition
+          schema:
+            $ref: "#/definitions/EventDefinition"
+        default:
+          description: Error
+          schema:
+             $ref: "#/definitions/ErrorResponse"
+
+
+definitions:
+  additionalItem:
+    type: [
+      "string",
+      "null"
+    ]
+  AttendEventRequestDefinition:
+    properties:
+      additionalItem:
+        $ref: "#/definitions/additionalItem"
+  UnattendEventRequestDefinition:
+    properties:
+      additionalItem:
+        $ref: "#/definitions/additionalItem"
+  EventDeletedDefinition:
+    properties:
+      deleted:
+        type: boolean
+  ErrorResponse:
+    required:
+      - title
+    properties:
+      title:
+        type: string
+      detail:
+        type: string
+  ParticipantDefinition:
+    properties:
+      id:
+        type: string
+      firstName:
+        type: string
+      familyName:
+        type: [
+          "string",
+          "null"
+        ]
+      email:
+        type: string
+      imageUrl:
+        type: [
+          "string",
+          "null"
+        ]
+      additionalItem:
+        $ref: "#/definitions/additionalItem"
+  EventDefinition:
+    type: object
+    properties:
+      id:
+        type: string
+      creatorId:
+        type: string
+      title:
+        type: string
+      description:
+        type: [
+          "string",
+          "null"
+        ]
+      location:
+        type: string
+      imageUrl:
+        type: [
+          "string",
+          "null"
+        ]
+      startDate:
+        type: string
+      endDate:
+        type: [
+          "string",
+          "null"
+        ]
+      lastConfirmationDate:
+        type: string
+      minParticipants:
+        type: integer
+      maxParticipants:
+        type: integer
+      additionalItems:
+        type: array
+        items:
+          $ref: "#/definitions/additionalItem"
+      participants:
+        type: array
+        items:
+          $ref: "#/definitions/ParticipantDefinition"
+  GetEventsResponseDefinition:
+    type: object
+    properties:
+      results:
+        type: array
+        items:
+          $ref: "#/definitions/EventDefinition"
+  CreateEventRequestDefinition:
+    type: object
+    required:
+      - title
+      - location
+      - startDate
+      - lastConfirmationDate
+      - minParticipants
+      - maxParticipants
+    properties:
+      title:
+        type: string
+      description:
+        type: string
+      location:
+        type: string
+      imageUrl:
+        type: string
+      startDate:
+        type: string
+      endDate:
+        type: string
+      lastConfirmationDate:
+        type: string
+      minParticipants:
+        type: integer
+      maxParticipants:
+        type: integer
+      additionalItems:
+        type: array
+        items:
+          $ref: "#/definitions/additionalItem"
+  UpdateEventRequestDefinition:
+    type: object
+    properties:
+      title:
+        type: string
+      description:
+        type: string
+      location:
+        type: string
+      imageUrl:
+        type: string
+      startDate:
+        type: string
+      endDate:
+        type: string
+      lastConfirmationDate:
+        type: string
+      minParticipants:
+        type: integer
+      maxParticipants:
+        type: integer
+      additionalItems:
+        type: array
+        items:
+          $ref: "#/definitions/additionalItem"
+
+parameters:
+  EventId:
+    name: eventId
+    in: path
+    description: The id of the group (uuid)
+    required: true
+    type: string
+    pattern: '^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'
+
