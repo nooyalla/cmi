@@ -22,7 +22,7 @@ module.exports = function (sequelize, DataTypes) {
         ...dateFields,
     }, {
         paranoid: true,
-        tableName: 'users_players',
+        tableName: 'event_users',
     });
 
     return EventUsers;
