@@ -191,4 +191,5 @@ module.exports = {
   deleteEvent,
   attendEvent,
   unattendEvent,
+  getEventParticipants
 };

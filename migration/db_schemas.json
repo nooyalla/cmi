@@ -1,6 +1,18 @@
 {
     "tables": [
         {
+            "tableName":  "events_notifications",
+            "columns" : [
+                "id text PRIMARY KEY",
+                "event_id text NOT NULL",
+                "handled boolean",
+                "last_confirmation_date text",
+                "created_at timestamp without time zone NOT NULL",
+                "updated_at timestamp without time zone NOT NULL",
+                "deleted_at timestamp without time zone"
+            ]
+        },
+        {
             "tableName":  "events",
             "columns" : [
                 "id text PRIMARY KEY",
@@ -17,7 +29,8 @@
                 "additional_items text",
                 "created_at timestamp without time zone NOT NULL",
                 "updated_at timestamp without time zone NOT NULL",
-                "deleted_at timestamp without time zone"
+                "deleted_at timestamp without time zone",
+                "participants_have_been_notify boolean"
             ]
         },
         {

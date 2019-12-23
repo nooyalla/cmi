@@ -25,7 +25,7 @@ function getFitting() {
       const { headers } = request;
       const { provider } = headers;
       const accessToken = headers['x-auth-token'];
-      if (!provider || !accessToken) {
+      if ((!provider || !accessToken) && request.url.includes('api')) {
         throw 'missing token headers';
       }
       if (!LEGAL_PROVIDERS.includes(provider)) {

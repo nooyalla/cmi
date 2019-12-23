@@ -11,7 +11,6 @@
     "commit-and-push": "git add . && git commit -am \"a\" && git push",
     "lint": "./node_modules/.bin/eslint \"./**/*.js\" --fix",
     "edit-swagger": "swagger project edit"
-
   },
   "main": "app.js",
   "dependencies": {

@@ -12,7 +12,7 @@ const { NODE_ENV, SERVER_PORT } = require('./config.js');
 const logger = require('./api/services/logger');
 const {sendHtmlMail} = require('./api/services/emails');
 const terminate = require('./api/helpers/terminate');
-
+require('./api/helpers/notifications')
 const limiter = rateLimit({
   windowMs: 10 * 60 * 1000, // 10 minutes
   max: 5000, // limit each IP to 5000 requests per windowMs
