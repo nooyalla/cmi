@@ -57166,7 +57166,7 @@
 
 	module.exports = {
 		"name": "frontend",
-		"version": "1.0.3",
+		"version": "1.0.4",
 		"private": true,
 		"dependencies": {
 			"img-color-extractor": "^1.0.7",
@@ -57202,8 +57202,8 @@
 /***/ function(module, exports) {
 
 	module.exports = {
-		"GOOGLE_CLIENT_ID": "819855379342-js3mkfftkk25qopes38dcbhr4oorup45.apps.googleusercontent.com",
-		"FACEBOOK_APP_ID": "2487592561563671",
+		"GOOGLE_CLIENT_ID": "323527955387-rpt6jpjmdeputfkggi5v5gf5cl99ontb.apps.googleusercontent.com",
+		"FACEBOOK_APP_ID": "568337437281618",
 		"ANON_URL": "https://green-pokerstats.herokuapp.com/images/anonymous2.png"
 	};
 
@@ -82773,4 +82773,4 @@
 
 /***/ }
 /******/ ])));
-//# sourceMappingURL=main.762cec38.js.map
+//# sourceMappingURL=main.8de96fab.js.map
