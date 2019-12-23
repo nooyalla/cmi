@@ -20,6 +20,10 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.TEXT,
       field: 'image_url',
     },
+    creatorId: {
+      type: DataTypes.TEXT,
+      field: 'creator_id',
+    },
     startDate: {
       type: DataTypes.DATE,
       field: 'start_date',
@@ -41,6 +45,10 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.NUMBER,
       field: 'max_participants',
       defaultValue: 0,
+    },
+    additionalItems: {
+      type: DataTypes.TEXT,
+      field: 'additional_items',
     },
     ...dateFields,
   }, {

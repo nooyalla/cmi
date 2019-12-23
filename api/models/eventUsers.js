@@ -11,9 +11,13 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             field: 'user_id',
         },
-        playerId: {
+        eventId: {
             type: DataTypes.STRING,
             field: 'event_id',
+        },
+        additionalItem: {
+            type: DataTypes.STRING,
+            field: 'additional_item',
         },
         confirmationDate: {
             type: DataTypes.DATE,
@@ -22,7 +26,7 @@ module.exports = function (sequelize, DataTypes) {
         ...dateFields,
     }, {
         paranoid: true,
-        tableName: 'users_players',
+        tableName: 'event_users',
     });
 
     return EventUsers;

@@ -16,10 +16,26 @@ async function createTables(){
     console.log('createTables end');
 }
 
+async function deleteTables(){
+    console.log('deleteTables start');
+    for (const tableData of dbSchemas.tables){
+        try {
+            console.log('deleting table:',tableData.tableName);
+            await models.sequelize.query(`DROP TABLE ${tableData.tableName};`);
+            console.log('table deleted. ',tableData.tableName);
+            console.log('');
+        } catch (e) {
+            console.error(e.message)
+        }
+    }
+    console.log('deleteTables end');
+}
+
 async function doStuff() {
     console.log('################');
     console.log('migration start');
     console.log('################');
+    await deleteTables();
     await createTables();
     console.log('########');
     console.log('DONE');

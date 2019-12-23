@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node migration/mongoToPostgres.js && node index.js",
+    "start": "node migration/scema.js && node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "migration": "node migration/mongoToPostgres.js"
+    "migration": "node migration/scema.js"
   },
   "dependencies": {
     "express": "^4.12.3",
@@ -16,7 +16,11 @@
     "pg": "^7.8.0",
     "pg-hstore": "^2.3.2",
     "request-promise": "^4.2.4",
-    "sequelize": "^5.0.0-beta.16"
+    "sequelize": "^5.0.0-beta.16",
+    "passport": "^0.4.0",
+    "passport-facebook-token": "^3.3.0",
+    "passport-google-token": "^0.1.2",
+    "passport-oauth": "^1.0.0"
   },
   "devDependencies": {},
   "repository": {
