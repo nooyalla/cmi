@@ -15,6 +15,10 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             field: 'event_id',
         },
+        additionalItem: {
+            type: DataTypes.STRING,
+            field: 'additional_item',
+        },
         confirmationDate: {
             type: DataTypes.DATE,
             field: 'confirmation_date',
