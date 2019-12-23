@@ -11,7 +11,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             field: 'user_id',
         },
-        playerId: {
+        eventId: {
             type: DataTypes.STRING,
             field: 'event_id',
         },
