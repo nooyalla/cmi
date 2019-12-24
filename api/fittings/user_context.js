@@ -21,6 +21,9 @@ function getFitting() {
   return async function UserContext({ request, response }, next) {
     try {
       logger.info(`[UserContext:fitting] ${request.method} request.`);
+      if (request.method === 'OPTIONS') {
+        return next();
+      }
 
       const { headers } = request;
       const { provider } = headers;
