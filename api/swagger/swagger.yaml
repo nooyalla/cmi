@@ -240,15 +240,24 @@ definitions:
       title:
         type: string
       description:
-        type: string
+        type: [
+          "string",
+          "null"
+        ]
       location:
         type: string
       imageUrl:
-        type: string
+        type: [
+          "string",
+          "null"
+        ]
       startDate:
         type: string
       endDate:
-        type: string
+        type: [
+          "string",
+          "null"
+        ]
       lastConfirmationDate:
         type: string
       minParticipants:
