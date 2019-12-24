@@ -216,10 +216,6 @@ definitions:
         type: integer
       maxParticipants:
         type: integer
-      additionalItems:
-        type: array
-        items:
-          $ref: "#/definitions/additionalItem"
       participants:
         type: array
         items:
@@ -259,10 +255,6 @@ definitions:
         type: integer
       maxParticipants:
         type: integer
-      additionalItems:
-        type: array
-        items:
-          $ref: "#/definitions/additionalItem"
   UpdateEventRequestDefinition:
     type: object
     properties:
