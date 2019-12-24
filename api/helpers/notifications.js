@@ -9,7 +9,7 @@ async function handleEvent(e){
     const event = e.toJSON()
     event.participants = await getEventParticipants(event.id);
     const eventIsOn = event.minParticipants <= event.participants.length;
-    const subject = eventIsOn ?  `Game on! The event ${event.title} is confirmed` :  `Game canceled! The event ${event.title} didn't reach minimum participants`;
+    const subject = eventIsOn ?  `its on! The event ${event.title} is confirmed` :  `event canceled! The event ${event.title} didn't reach minimum participants`;
 
     console.log(` ${event.participants} participants to notify. email subject: ${subject}`);
     await Promise.all(event.participants.map(p=>{
