@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "node app.js",
-    "migration": "node migration/mongoToPostgres.js",
+    "migration": "node migration/schema.js",
     "commit-and-push": "git add . && git commit -am \"a\" && git push",
     "lint": "./node_modules/.bin/eslint \"./**/*.js\" --fix",
     "edit-swagger": "swagger project edit"
