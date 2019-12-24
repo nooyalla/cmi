@@ -8,6 +8,7 @@ const models = require('../models');
  */
 async function getEventParticipants(eventId) {
   const participants = await models.eventUsers.findAll({
+    sort: ['confirmationDate ASC' ],
     where:{
       eventId
     }
