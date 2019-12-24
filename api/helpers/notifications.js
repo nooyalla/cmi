@@ -23,11 +23,13 @@ async function handleEvent(e){
                         Hey ${p.firstName},<br/><br/>
                         
                         The event ${event.title} will take place at "${event.location}" <br/>
-                        at "${moment(event.startDate).format('MMMM Do YYYY, h:mm a')}". <br/> 
-                        You should bring ${p.additionalItem}<br/><br/><br/>
+                        on "${moment(event.startDate).format('MMMM Do YYYY, h:mm a')}". <br/> 
                         
-                        See you soon :)
+                        ${p.additionalItem && p.additionalItem.length>0 ? `You should bring ${p.additionalItem}`:''} <br/><br/><br/>
+                        
+                        See you soon :)  <br/><br/><br/>
                   
+                        ${event.participants[0].firstName}
                     </div>
                     
                   </body>
