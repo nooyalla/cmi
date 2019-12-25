@@ -111,17 +111,20 @@ async function getEvents(userContext) {
  * @return {Promise<*>}
  */
 async function createEvent(userContext, data) {
-  if (data.additionalItems){
-    data.additionalItems = JSON.stringify(data.additionalItems);
+  if (!data.additionalItems){
+    data.additionalItems = '';
   }
   const newEvent = await models.events.create({...data, creatorId: userContext.id});
   const event = newEvent.toJSON();
-  const eventUser = {
-    userId: userContext.id,
-    eventId: event.id,
-    confirmationDate: new Date()
-  };
-  await models.eventUsers.create(eventUser);
+  if (data.additionalItems.length===0){
+    const eventUser = {
+      userId: userContext.id,
+      eventId: event.id,
+      confirmationDate: new Date()
+    };
+    await models.eventUsers.create(eventUser);
+  }
+
   return getEvent(userContext, event.id);
 }
 
@@ -133,9 +136,6 @@ async function createEvent(userContext, data) {
  * @return {Promise<*>}
  */
 async function updateEvent(userContext, eventId, data) {
-  if (data.additionalItems){
-    data.additionalItems = JSON.stringify(data.additionalItems);
-  }
   const existingEvent = await getEvent(userContext, eventId);
   if (existingEvent.creatorId !== userContext.id){
     throw forbidden('not creator cannot update event')
