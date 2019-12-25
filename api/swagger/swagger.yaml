@@ -252,10 +252,7 @@ definitions:
           "null"
         ]
       startDate:
-        type: [
-          "string",
-          "null"
-        ]
+        type: string
       endDate:
         type: [
           "string",
