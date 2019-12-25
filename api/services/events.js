@@ -48,11 +48,7 @@ async function getEvent(userContext, eventId) {
   }
   const event = result.toJSON();
   event.participants = await getEventParticipants(eventId);
-  if (event.additionalItems){
-    event.additionalItems = JSON.parse(event.additionalItems);
-  } else {
-    event.additionalItems = [];
-  }
+
   return event;
 }
 

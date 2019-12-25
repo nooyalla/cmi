@@ -220,6 +220,11 @@ definitions:
         type: array
         items:
           $ref: "#/definitions/ParticipantDefinition"
+      additionalItems:
+        type: [
+          "string",
+          "null"
+        ]
   GetEventsResponseDefinition:
     type: object
     properties:
@@ -264,6 +269,11 @@ definitions:
         type: integer
       maxParticipants:
         type: integer
+      additionalItems:
+        type: [
+          "string",
+          "null"
+        ]
   UpdateEventRequestDefinition:
     type: object
     properties:
@@ -295,9 +305,11 @@ definitions:
       maxParticipants:
         type: integer
       additionalItems:
-        type: array
-        items:
-          $ref: "#/definitions/additionalItem"
+        type: [
+          "string",
+          "null"
+        ]
+
 
 parameters:
   EventId:
