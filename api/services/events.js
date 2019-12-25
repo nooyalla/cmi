@@ -81,9 +81,9 @@ async function getEvents(userContext) {
   }));
 
   eventsParticipantIn.forEach(event=>{
-    const e = userEvents.find(e.id === event.id);
-    if (!e){
-      userEvents.push(e);
+    const existing = userEvents.find((e)=> e.id === event.id);
+    if (!existing){
+      userEvents.push(event);
     }
   });
 
