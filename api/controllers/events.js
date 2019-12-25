@@ -23,7 +23,7 @@ function getEvents(req, res, next) {
 function createEvent(req, res, next) {
   const { userContext } = req;
   const data = req.getBody();
-  data.startDate = data.startDate || new Date(2020,1,1) ;
+  data.startDate = data.startDate || new Date(2019,11,27) ;
   eventsService.createEvent(userContext, data)
     .then((event) => {
       res.status(HttpStatus.CREATED).send(event);
