@@ -1,6 +1,6 @@
 const GSR = require('google-search-results-nodejs')
 const {GOOGLE_API_KEY} = process.env;
-const client = new GSR.GoogleSearchResults('AIzaSyBeBzyKSZwtUuBSlwN0MGMhqxhBpbBQnt4');
+const client = new GSR.GoogleSearchResults(GOOGLE_API_KEY);
 async function getImageUrl(text){
 
     const query_params = {
