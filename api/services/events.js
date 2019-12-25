@@ -62,12 +62,31 @@ async function getEvent(userContext, eventId) {
  * @return {Promise<{results: Uint8Array | BigInt64Array | *[] | Float64Array | Int8Array | Float32Array | Int32Array | Uint32Array | Uint8ClampedArray | BigUint64Array | Int16Array | Uint16Array}>}
  */
 async function getEvents(userContext) {
+  const userId = userContext.id;
+
   const userEvents = await models.events.findAll({
     order: [['createdAt', 'ASC']],
     where: {
-      creatorId: userContext.id
+      creatorId: userId
     }
   });
+
+  const participants = await models.eventUsers.findAll({
+    where:{
+      userId
+    }
+  });
+  const eventsParticipantIn = await Promise.all(participants.map(participant=>{
+      return models.events.findOne({where :{ id: participant.eventId }})
+  }));
+
+  eventsParticipantIn.forEach(event=>{
+    const e = userEvents.find(e.id === event.id);
+    if (!e){
+      userEvents.push(e);
+    }
+  });
+
 
   const results = await Promise.all(userEvents.map(async (e) => {
     const event = e.toJSON();
