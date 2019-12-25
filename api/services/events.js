@@ -87,11 +87,7 @@ async function getEvents(userContext) {
   const results = await Promise.all(userEvents.map(async (e) => {
     const event = e.toJSON();
     event.participants = await getEventParticipants(event.id);
-    if (event.additionalItems){
-      event.additionalItems = JSON.parse(event.additionalItems);
-    } else {
-      event.additionalItems = [];
-    }
+
     return event;
   }));
 
