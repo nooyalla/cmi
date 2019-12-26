@@ -157,10 +157,6 @@ async function deleteEvent(userContext, eventId) {
 
 async function attendEvent(userContext, eventId, additionalItem) {
   const existingEvent = await getEvent(userContext, eventId);
-  const { additionalItems } = existingEvent;
-  if (additionalItem && !additionalItems.includes(additionalItem)){
-    throw badRequest("item not in list");
-  }
   let participant = existingEvent.participants.find(p=>p.id === userContext.id);
   if (participant){//already in event - update his additionalItem
     await models.eventUsers.update({ additionalItem }, {
