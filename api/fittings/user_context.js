@@ -34,6 +34,11 @@ function getFitting() {
       if (!LEGAL_PROVIDERS.includes(provider)) {
         throw `unknown provider: ${provider}`;
       }
+
+      console.log('************ ');
+      console.log('request body: ');
+      console.log(' ',request.body);
+      console.log('************ ');
       const existingUser = await models.users.findOne({
         where: {
           token: accessToken,
