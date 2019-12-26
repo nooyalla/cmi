@@ -13,7 +13,7 @@ async function getEventParticipants(eventId) {
       eventId
     }
   });
-  const results = await Promise.all(participants.map(async ({userId, additionalItem})=>{
+  const results = await Promise.all(participants.map(async ({userId, additionalItem, confirmationDate})=>{
     const user = await models.users.findOne({
       where:{
         id: userId
@@ -26,6 +26,7 @@ async function getEventParticipants(eventId) {
       email:user.email,
       imageUrl:user.imageUrl,
       additionalItem,
+      confirmationDate
     }
   }));
   return results;
